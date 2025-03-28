@@ -1,0 +1,239 @@
+:root {
+  --Bright-Blue: hsl(220, 98%, 61%);
+  --Check-Background: hsl(192, 100%, 67%), hsl(280, 87%, 65%);
+  /* Light Theme */
+  --Very-Light-Gray: hsl(0, 0%, 98%);
+  --Very-Light-Grayish-Blue: hsl(236, 33%, 92%);
+  --Light-Grayish-Blue-l: hsl(233, 11%, 84%);
+  --Dark-Grayish-Blue-l: hsl(236, 9%, 61%);
+  --Very-Dark-Grayish-Blue-l: hsl(235, 19%, 35%);
+  /* Dark Theme */
+  --Very-Dark-Blue: hsl(235, 21%, 11%);
+  --Very-Dark-Desaturated-Blue: hsl(235, 24%, 19%);
+  --Light-Grayish-Blue-d: hsl(234, 39%, 85%);
+  --Light-Grayish-Blue-hover: hsl(236, 33%, 92%);
+  --Dark-Grayish-Blue: hsl(234, 11%, 52%);
+  --Very-Dark-Grayish-Blue-d: hsl(233, 14%, 35%);
+  --Very-Dark-Grayish-Blue: hsl(237, 14%, 26%);
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+body {
+  font-size: 18px;
+  font-family: "Josefin Sans", sans-serif;
+  background-image: url(./images/bg-desktop-light.jpg);
+  background-repeat: no-repeat;
+  background-color: var(--Very-Light-Gray);
+  background-position-x: center;
+}
+.dark {
+  background-image: url(./images/bg-desktop-dark.jpg);
+  background-color: var(--Very-Dark-Blue);
+}
+main {
+  width: 32rem;
+  margin: 4rem auto;
+  padding: 0 1.5rem;
+  max-width: 100%;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header h1 {
+  color: white;
+  letter-spacing: 15px;
+}
+header .img-mode {
+  cursor: pointer;
+}
+header .img-mode img.sun {
+  display: none;
+}
+.dark .img-mode img.sun {
+  display: block;
+}
+.dark .img-mode img.moon {
+  display: none;
+}
+label {
+  position: relative;
+}
+label span {
+  border: 2px solid var(--Very-Light-Grayish-Blue);
+  margin: 42px 15px;
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  position: absolute;
+}
+.dark label span {
+  border-color: var(--Very-Dark-Grayish-Blue);
+}
+label input {
+  border: none;
+  padding: 15px;
+  width: 100%;
+  border-radius: 4px;
+  font-size: 18px;
+  font-family: "Josefin Sans", sans-serif;
+  margin: 30px 0 20px;
+  padding-left: 50px;
+  caret-color: var(--Bright-Blue);
+}
+.dark label input {
+  background-color: var(--Very-Dark-Desaturated-Blue);
+  color: white;
+}
+label input:focus {
+  outline: none;
+}
+
+section {
+  background-color: white;
+  width: 100%;
+  border-radius: 4px;
+  box-shadow: 0px 10px 30px hsl(236deg 9% 61% / 20%);
+}
+.dark section {
+  background-color: var(--Very-Dark-Desaturated-Blue);
+  box-shadow: 0px 10px 30px hsl(0deg 0% 0% / 30%);
+}
+section .item {
+  border-bottom: 1px solid var(--Very-Light-Grayish-Blue);
+  padding: 15px;
+  display: flex;
+  align-items: end;
+  color: var(--Very-Dark-Grayish-Blue-l);
+}
+.dark section .item {
+  border-color: var(--Very-Dark-Grayish-Blue);
+  color: var(--Light-Grayish-Blue-d);
+}
+section .item span {
+  border: 2px solid var(--Very-Light-Grayish-Blue);
+  margin-right: 15px;
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+}
+.dark section .item span {
+  border-color: var(--Very-Dark-Grayish-Blue);
+}
+section .item span:hover {
+  background-image: linear-gradient(white, white), linear-gradient(135deg, var(--Check-Background));
+  border: 2px solid transparent;
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+}
+.dark section .item span:hover {
+  background-image: linear-gradient(var(--Very-Dark-Desaturated-Blue), var(--Very-Dark-Desaturated-Blue)), linear-gradient(135deg, var(--Check-Background));
+}
+section .item.checked span {
+  background-image: linear-gradient(135deg, var(--Check-Background));
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+section .item.checked span::after {
+  content: url(./images/icon-check.svg);
+  position: absolute;
+}
+.dark section .item.checked p {
+  color: var(--Very-Dark-Grayish-Blue-d);
+}
+section .item.checked p {
+  color: var(--Light-Grayish-Blue-l);
+  text-decoration: line-through;
+}
+section .item img {
+  margin-left: auto;
+  display: none;
+}
+section .item:hover img {
+  display: block;
+}
+section .item span, section .item p, section .item img {
+  cursor: pointer;
+}
+
+section .control {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  font-size: 14px;
+  color: var(--Dark-Grayish-Blue-l);
+  position: relative;
+}
+section .control .filter {
+  display: flex;
+  gap: 15px;
+}
+section .control .filter span, section .control .clear {
+  cursor: pointer;
+  font-weight: 700;
+}
+section .control .filter span:hover, section .control .clear:hover {
+  color: var(--Dark-Grayish-Blue);
+}
+.dark section .control .filter span:hover, .dark section .control .clear:hover {
+  color: var(--Light-Grayish-Blue-hover);
+}
+section .control .filter span.active {
+  color: var(--Bright-Blue);
+}
+main > p {
+  color: var(--Dark-Grayish-Blue-l);
+  text-align: center;
+  padding-top: 4rem;
+  font-size: 14px;
+}
+
+footer {
+  font-size: 12px;
+  width: max-content;
+  position: absolute;
+  bottom: 10px;
+  right: 50%;
+  transform: translate(50%);
+  opacity: .7;
+}
+.dark footer {
+  color: var(--Light-Grayish-Blue-d);
+}
+footer a {
+  color: var(--Bright-Blue);
+  text-decoration: none;
+}
+
+@media (max-width: 500px) {
+  body {
+    font-size: 16px;
+  }
+  section .control .filter {
+    position: absolute;
+    bottom: -60px;
+    right: 0;
+    background: white;
+    padding: 15px;
+    width: 100%;
+    border-radius: 4px;
+    box-shadow: 0px 10px 30px hsl(236deg 9% 61% / 20%);
+    justify-content: center;
+  }
+  .dark section .control .filter {
+    background-color: var(--Very-Dark-Desaturated-Blue);
+    box-shadow: 0px 10px 30px hsl(0deg 0% 0% / 30%);  
+  }
+  main > p {
+    padding-top: 6rem;
+  }
+}
